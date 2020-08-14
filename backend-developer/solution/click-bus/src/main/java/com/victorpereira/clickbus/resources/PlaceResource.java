@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +32,11 @@ public class PlaceResource {
 	@GetMapping(value="/{id}")
 	public Place findById(@PathVariable String id) {
 		return service.findById(id);
+	}
+	
+	@GetMapping(value="/")
+	public Place findByName(@RequestParam(value="name") String name) {
+		return service.findByName(name);
 	}
 	
 	@PostMapping 

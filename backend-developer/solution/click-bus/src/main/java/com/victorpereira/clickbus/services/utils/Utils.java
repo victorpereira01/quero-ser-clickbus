@@ -13,4 +13,9 @@ public class Utils {
 		currentData.setUpdatedAt(new Date(System.currentTimeMillis()));
 		return currentData;
 	}
+	
+	public static String uncode(String name) {
+		name.replace("+", " ");
+		return name;
+	}
 }

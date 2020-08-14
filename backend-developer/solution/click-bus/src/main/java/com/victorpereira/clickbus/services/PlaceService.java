@@ -24,6 +24,11 @@ public class PlaceService {
 		Optional<Place> place = repo.findById(id);
 		return place.orElseThrow();
 	}
+	
+	public Place findByName(String name) {
+		String uncodedName = Utils.uncode(name);
+		return repo.findByName(uncodedName);
+	}
 
 	public Place insert(Place place) {
 		return repo.insert(place);
