@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.victorpereira.clickbus.models.Place;
 import com.victorpereira.clickbus.repositories.PlaceRepository;
+import com.victorpereira.clickbus.services.utils.Utils;
 
 @Service
 public class PlaceService {
@@ -26,5 +27,11 @@ public class PlaceService {
 
 	public Place insert(Place place) {
 		return repo.insert(place);
+	}
+	
+	public Place update(Place place, String id) {
+		Place newPlace = findById(id);
+		place = Utils.updateData(newPlace, place);
+		return repo.save(newPlace);
 	}
 }
